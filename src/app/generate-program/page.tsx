@@ -278,7 +278,7 @@ const toggleCall = async () => {
               {messages.map((msg, index) => (
                 <div key={index} className="message-item animate-fadeIn">
                   <div className="font-semibold text-xs text-muted-foreground mb-1">
-                    {msg.role === "assistant" ? "FitSoul AI" : "You"}:
+                    {msg.role === "assistant" ? "Fitron AI" : "You"}:
                   </div>
                   <p className="text-foreground">{msg.content}</p>
                 </div>
