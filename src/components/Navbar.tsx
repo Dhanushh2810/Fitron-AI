@@ -29,8 +29,8 @@ const Navbar = () => {
                 href="/"
                 className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors"
               >
-                <HomeIcon size={16} />
-                <span>Home</span>
+                <HomeIcon  className="ml-3" size={16} />
+                <span className="">Home</span>
               </Link>
 
               <Link
