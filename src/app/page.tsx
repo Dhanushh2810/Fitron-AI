@@ -1,12 +1,28 @@
+"use client"
 import TerminalOverlay from "@/components/TerminalOverlay";
 import { Button } from "@/components/ui/button";
 import UserPrograms from "@/components/UserPrograms";
 import { ArrowRightIcon } from "lucide-react";
 import Link from "next/link";
 
+
+import { useUser } from "@clerk/nextjs";
 const HomePage = () => {
+  const { user } = useUser();
+  
+  if (!user) console.log("not usresfd");
+  
+  // Access user ID
+  
+  console.log("cle,fefsdcx:",user?.id);
+  
+
+
   return (
+  
+
     <div className="flex flex-col min-h-screen text-foreground overflow-hidden">
+ 
       <section className="relative z-10 py-24 flex-grow">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative">

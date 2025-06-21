@@ -2,7 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { vapi } from "@/lib/vapi";
+// import the Vapi client, not the API handler
+import {vapi} from "@/lib/vapi";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -121,37 +122,34 @@ const GenerateProgramPage = () => {
   }, []);
 
 const toggleCall = async () => {
-  if (callActive) {
-    vapi.stop();
-  } else {
-    try {
-      setConnecting(true);
-      setMessages([]);
-      setCallEnded(false);
+    if (callActive) vapi.stop();
+    else {
+      try {
+        setConnecting(true);
+        setMessages([]);
+        setCallEnded(false);
 
-      const fullName = user?.firstName
-        ? `${user.firstName} ${user.lastName || ""}`.trim()
-        : "There";
+        const fullName = user?.firstName
+          ? `${user.firstName} ${user.lastName || ""}`.trim()
+          : "There";
+        console.log(fullName);
+        console.log("clerkid:",user?.id);
 
-      await vapi.start(
-        undefined,
-        undefined,
-        undefined,
-        process.env.NEXT_PUBLIC_VAPI_WORKFLOW_ID,
-        {
+
+        await vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!, {
           variableValues: {
             full_name: fullName,
-            user_id: user?.id,
+            userd: user?.id,
           },
+         
         }
       );
-
-    } catch (error) {
-      console.log("Failed to start call", error);
-      setConnecting(false);
+      } catch (error) {
+        console.log("Failed to start call", error);
+        setConnecting(false);
+      }
     }
-  }
-};
+  };
 
 
   return (
@@ -207,14 +205,14 @@ const toggleCall = async () => {
                 <div className="relative w-full h-full rounded-full bg-card flex items-center justify-center border border-border overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-secondary/10"></div>
                   <img
-                    src="/ai-avatar.png"
+                    src="ai-avatar.png"
                     alt="AI Assistant"
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
 
-              <h2 className="text-xl font-bold text-foreground">CodeFlex AI</h2>
+              <h2 className="text-xl font-bold text-foreground">FitSoul AI</h2>
               <p className="text-sm text-muted-foreground mt-1">Fitness & Diet Coach</p>
 
               {/* SPEAKING INDICATOR */}
@@ -280,7 +278,7 @@ const toggleCall = async () => {
               {messages.map((msg, index) => (
                 <div key={index} className="message-item animate-fadeIn">
                   <div className="font-semibold text-xs text-muted-foreground mb-1">
-                    {msg.role === "assistant" ? "CodeFlex AI" : "You"}:
+                    {msg.role === "assistant" ? "FitSoul AI" : "You"}:
                   </div>
                   <p className="text-foreground">{msg.content}</p>
                 </div>

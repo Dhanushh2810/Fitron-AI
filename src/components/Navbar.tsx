@@ -17,7 +17,7 @@ const Navbar = () => {
             <ZapIcon className="w-4 h-4 text-primary" />
           </div>
           <span className="text-xl font-bold font-mono">
-            code<span className="text-primary">flex</span>.ai
+            Fit<span className="text-primary">ron</span>.ai
           </span>
         </Link>
 
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className="flex items-center gap-1.5 text-sm hover:text-primary transition-colors"
               >
                 <UserIcon size={16} />
-                <span>Profile</span>
+                <span className="mr-2">Profile</span>
               </Link>
               <Button
                 asChild

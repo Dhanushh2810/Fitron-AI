@@ -90,6 +90,8 @@ const UserPrograms = () => {
                       alt={`${program.first_name}`}
                       className="h-full w-full object-cover"
                     />
+                    
+                    
                   </div>
                   <div>
                     <CardTitle className="text-xl text-foreground">
