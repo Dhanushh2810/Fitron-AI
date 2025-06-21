@@ -167,7 +167,7 @@ const toggleCall = async () => {
         </div>
 
         {/* VIDEO CALL AREA */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-8">
           {/* AI ASSISTANT CARD */}
           <Card className="bg-card/90 backdrop-blur-sm border border-border overflow-hidden relative">
             <div className="aspect-video flex flex-col items-center justify-center p-6 relative">
@@ -213,7 +213,7 @@ const toggleCall = async () => {
               </div>
 
               <h2 className="text-xl font-bold text-foreground">Fitron AI</h2>
-              <p className="text-sm text-muted-foreground mt-1">Fitness & Diet Coach</p>
+              <p className="text-xs text-muted-foreground mt-1">Fitness & Diet Coach</p>
 
               {/* SPEAKING INDICATOR */}
 
@@ -248,6 +248,7 @@ const toggleCall = async () => {
               <div className="relative size-32 mb-4">
                 <img
                   src={user?.imageUrl}
+                  
                   alt="User"
                   // ADD THIS "size-full" class to make it rounded on all images
                   className="size-full object-cover rounded-full"
@@ -255,7 +256,7 @@ const toggleCall = async () => {
               </div>
 
               <h2 className="text-xl font-bold text-foreground">You</h2>
-              <p className="text-sm text-muted-foreground mt-1">
+              <p className="text-xs text-muted-foreground mt-1">
                 {user ? (user.firstName + " " + (user.lastName || "")).trim() : "Guest"}
               </p>
 
