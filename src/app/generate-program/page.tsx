@@ -139,7 +139,7 @@ const toggleCall = async () => {
         await vapi.start(process.env.NEXT_PUBLIC_VAPI_ASSISTANT_ID!, {
           variableValues: {
             full_name: fullName,
-            userd: user?.id,
+            userId: user?.id,
           },
          
         }
